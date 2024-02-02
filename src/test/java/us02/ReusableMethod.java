@@ -11,6 +11,10 @@ public class ReusableMethod {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
 
+
+
+
+
     }
 
 }
