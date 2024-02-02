@@ -8,5 +8,6 @@ public class test01  extends ReusableMethod{
     @Test
     void test01() {
         System.out.println();
+        System.out.println();
     }
 }
