@@ -1,6 +1,4 @@
 
-N
-src/test/java/us04/test01.java,f\d\fd8344f7a539b2e32fb6d026e8e72fa4eb5019ae
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 R
@@ -23,3 +21,7 @@ R
 "src/test/java/us04/TestCase08.java,d\2\d2aaaaf59fb7a1a3f6d905f439fd7c255c85fede
 R
 "src/test/java/us04/TestCase09.java,e\d\ed483ee0d1ebd8f96b1103eedd36b0c14d72e9cd
+N
+src/test/java/us09/test01.java,a\b\abbb3cf9b3c89701dd7954d71103b4181e7efda1
+V
+&src/test/java/us02/ReusableMethod.java,6\4\642aa0fe53fba37dd4ba7e5f6386a83982867cc9
