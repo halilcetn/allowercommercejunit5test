@@ -1,27 +1,24 @@
 package us13;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.devtools.v85.animation.model.KeyframeStyle;
 import org.openqa.selenium.interactions.Actions;
 
-public class test01 extends Utilities13 {
+public class test02 extends Utilities13{
 
     @Test
     void Test01() {
         //1	 Web sitesine gider
         driver.get("https://allovercommerce.com/");
-
         //2	 Sign in butonuna tiklar
         WebElement registerBox= driver.findElement(By.xpath("//*[text()='Sign In']"));
         registerBox.click();
 
         //3	 Vendor gecerli verilerle siteye gidebilmeli
         WebElement giris= driver.findElement(By.xpath("(//input[@type='text'])[1]"));
-        giris.sendKeys("romey.moroni@farmoaks.com", Keys.TAB,"romey.moroni2024",Keys.TAB,Keys.ENTER);
+        giris.sendKeys("oli.isahi@farmoaks.com", Keys.TAB,"oli.isahi2024",Keys.TAB,Keys.ENTER);
         waitForSecond(2);
 
         //4	 My Account bağlantisina gidebilmeli
@@ -33,22 +30,24 @@ public class test01 extends Utilities13 {
         //5	 Addresses butonuna tiklayabilmeli
         actions.sendKeys(Keys.PAGE_DOWN).perform();
         driver.findElement(By.xpath("//a[text()='Addresses']")).click();
+        waitForSecond(2);
 
         //6	 Shipping Address eklemek için Add tıklayabilmeli
-        actions.sendKeys(Keys.END).perform();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        waitForSecond(2);
         driver.findElement(By.xpath("(//*[text()='Add'])[2]")).click();
+        waitForSecond(2);
 
-        //7	 First name'e gecerli bir veri girebilmeli
+        //7	 First name boş birakilmali
         //8	 Last name'e gecerli bir veri girebilmeli
         //9	 Company name'e gecrli bir veri girebilmeli
-        driver.findElement(By.cssSelector("#shipping_first_name")).sendKeys("Zafer",Keys.TAB,"Aydın",Keys.TAB,"ZA");
+        driver.findElement(By.cssSelector("#shipping_first_name")).sendKeys(Keys.TAB,"Aydın",Keys.TAB,"ZA");
         waitForSecond(2);
 
         //10 Country / Region butonundan ulke secebilmeli
         WebElement countryBox= driver.findElement(By.xpath("(//span[@tabindex='0'])[1]"));
         countryBox.sendKeys("Turkey",Keys.ENTER);
         waitForSecond(2);
-        //selectByIndexText(countryBox,30);
 
         //11 Street address'e gecerli bir veri girebilmeli
         driver.findElement(By.cssSelector("#shipping_address_1")).sendKeys("Huzur");
@@ -62,15 +61,12 @@ public class test01 extends Utilities13 {
 
         //15 Province butonundan gecerli bir veri secilebilmeli
         WebElement provinceBox=driver.findElement(By.xpath("(//span[@aria-haspopup='true'])[2]"));
-        //selectByVisibleTextTest(provinceBox,"İstanbul");
         provinceBox.sendKeys("İstanbul",Keys.ENTER);
 
         //16 SAVE ADDRESS butonuna tiklanabilmeli
-        driver.findElement(By.xpath("//button[@name='save_address']")).click();
+        driver.findElement(By.name("save_address")).click();
 
-        //17 "First name is a required field." yazisi gozükür
-
-
+        //17 Address changed successfully yazisi gozükür
 
     }
 }

@@ -36,5 +36,13 @@ public class Utilities13 {
         driver.get("https://allovercommerce.com/");
     }
 
+    public void waitForSecond(int second){
+        try {
+            Thread.sleep(second*1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
 }
