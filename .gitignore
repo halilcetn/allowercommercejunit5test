@@ -10,7 +10,7 @@ target/
 .idea/libraries/
 *.iws
 *.iml
-*.ipr
+*.iprgit
 
 ### Eclipse ###
 .apt_generated
@@ -36,3 +36,5 @@ build/
 
 ### Mac OS ###
 .DS_Store
+/.idea/
+/.idea/
