@@ -13,7 +13,7 @@ public class test01 {
         // Web sayfasını yükleyin
         driver.get("https://allovercommerce.com");
 
-
+        System.out.println("aysel yazdı");
 
         // Tarayıcıyı kapat
         driver.quit();
