@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 public class test01 extends TestBase {
     //Test Objective :Kullanıcı serach box tan istediği bir ürünü arayabilmeli
     //Pre-Condition  : Kullanıcı siteye kayıt olmuş olmalı
+    //Pozitif Senaryo
 
     /*Senaryo
     1.Kullanıcı kayıt olduğu bilgilerle siteye Sign in ile giriş yapar

@@ -6,23 +6,22 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
+public class test03 extends TestBase {
 
-public class test02 extends TestBase{
-    //Test Objective : Aradığı ürünü sepete  ekleyebilmeli (ADD TO CART)
+    //Test Objective : Aradığı ürünü sepete sınırsız sayıda ekleyememeli (ADD TO CART)
     //Pre-Condition  : Kullanıcı siteye kayıt olmuş olmalı
-    //Pozitif Senaryo
+    //Negatif Senaryo
 
     //https://allovercommerce.com
     /*Senaryo
-
     1.Kullanıcı kayıt olduğu bilgilerle siteye Sign in ile giriş yapar
     2.Search butonuna tıklar
     3.Aramak istediği ürünün ismini yazar
     4.Ürün ile ilgili seçenekler ekranda görünür
     5.Kullanıcının istediği ürünü seçip arayabildiği doğrulanmalı
-    6.Add To Cart butonuna tıklar
-    7.Ekranda ürünün eklendiği uyarısı geldiği doğrulanmalı
-     */
+    6.Add To Cart butonuna defalarca tıklar
+    7.Sepete eklenmek istenen ürün sayısı için stok yetersiz uyarısı geldiği doğrulanmalı
+    */
 
     @Test
     public void test01() throws InterruptedException {
@@ -47,20 +46,18 @@ public class test02 extends TestBase{
         searchButton1.sendKeys(Keys.ENTER);
 
         //5.Kullanıcının istediği ürünü arayabildiği doğrulanmalı (Television)
-        String expectedSearchText="HD Television";
+        String expectedSearchText = "HD Television";
         String actualSearchText = driver.findElement(By.xpath("//h1")).getText();
         Assertions.assertEquals(expectedSearchText, actualSearchText);
 
-        //6.Add To Cart butonuna tıklar
-        driver.findElement(By.xpath("//button[@name='add-to-cart']")).click();
-
-
-        //7.Ekranda ürünün eklendiği uyarısı geldiği doğrulanmalı
-        String expectedResult ="VIEW CART “HD Television” has been added to your cart.";
-        String actualResult = driver.findElement(By.xpath("//div[@role='alert']")).getText();
-        System.out.println("actualResult = " + actualResult);
-        Assertions.assertEquals(expectedResult,actualResult);
-
+        //6.Add To Cart butonuna defalarca tıklar (1000000 kez)
+       // WebElement addToCart=driver.findElement(By.xpath("//button[@name='add-to-cart']"));
+       // for (int i=0 ; i<1000001; i++){
+       //     addToCart.click();
+       //     Thread.sleep(100);
+       // }
+//
+        //7.Sepete eklenmek istenen ürün sayısı için stok yetersiz uyarısı geldiği doğrulanmalı
 
 
 
