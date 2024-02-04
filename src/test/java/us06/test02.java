@@ -3,11 +3,9 @@ package us06;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 
-
-import java.time.Duration;
 
 public class test02 extends TestBase{
     //Test Objective : Aradığı ürünü sepete  ekleyebilmeli (ADD TO CART)
@@ -57,36 +55,13 @@ public class test02 extends TestBase{
 
 
         //7.Ekranda ürünün eklendiği uyarısı geldiği doğrulanmalı
-        //uyarı ekrana geliyor, fakat kayboluyor,locate alınamıyor
-     //   String expectedResult = "HD Television” has been added to your cart.";
-     //   String actualResult = driver.findElement(By.xpath("//div[@role='alert']")).getText();
-     //   Assertions.assertEquals(expectedResult,actualResult);
+        String expectedResult ="VIEW CART “HD Television” has been added to your cart.";
+        String actualResult = driver.findElement(By.xpath("//div[@role='alert']")).getText();
+        System.out.println("actualResult = " + actualResult);
+        Assertions.assertEquals(expectedResult,actualResult);
 
 
 
-
-// 7.Ekranda ürünün eklendiği uyarısı geldiği doğrulanmalı
-        String expectedResult = "HD Television has been added to your cart.";
-        By alertLocator = By.xpath("//div[@role='alert']");
-
-// Alert görünene kadar max 10 saniye bekler
-        for (int i = 0; i < 10; i++) {
-            try {
-                // Alert görünüyorsa, metni al ve işlemleri yap
-                Alert alert = driver.switchTo().alert();
-                String actualResult = alert.getText();
-
-                // Bekleme süresini ve alert'i kapat
-                wait.until(ExpectedConditions.invisibilityOfElementLocated(alertLocator));
-                alert.accept();
-
-                Assertions.assertEquals(expectedResult, actualResult);
-                break;  // Eğer başarılıysa döngüden çık
-            } catch (NoAlertPresentException e) {
-                // Eğer alert bulunamazsa, 1 saniye bekleyip tekrar dene
-                Thread.sleep(1000);
-            }
-        }
 
     }
 
