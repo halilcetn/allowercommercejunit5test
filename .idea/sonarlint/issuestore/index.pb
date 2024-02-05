@@ -15,3 +15,6 @@ N
 src/test/java/us10/test01.java,9\0\90bd38d212c42dac7762eedceaecaf51d9bd288f
 N
 src/test/java/us13/test01.java,e\f\ef8c5b67dcccc2b4b6b1e4818857250841dc136f
+:
+
+.gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
