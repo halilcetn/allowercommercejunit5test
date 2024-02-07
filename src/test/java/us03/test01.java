@@ -1,7 +1,9 @@
 package us03;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -45,16 +47,9 @@ public class test01 {
         Actions actions = new Actions(driver);
         actions.scrollByAmount(0, 200).perform();
 
-        //  !!! BURADA HATA VAR !!!  .....
-
         // Country/Region seçilir - "Turkey"
-        //  driver.findElement(By.xpath("(//*[@class='select2-selection__placeholder'])[1]")).click();
-        //  Select select=new Select(driver.findElement(By.xpath("(//*[@class='select2-selection__placeholder'])[1]")));
-        //  select.selectByIndex(11);
-
-        //WebElement country =driver.findElement(By.xpath("(//*[@class='select2-selection__placeholder'])[1]"));
-        //Select select=new Select(country);
-        //select.selectByValue("Turkey");
+        driver.findElement(By.xpath("(//*[@role='textbox'])[1]")).click();
+        driver.findElement(By.cssSelector(".select2-search__field")).sendKeys("Turkey", Keys.ENTER);
 
         // Street Address girilir - "Samsun"
         driver.findElement(By.xpath("//input[@name='billing_address_1']")).sendKeys("Samsun");
@@ -64,9 +59,9 @@ public class test01 {
         // Town/City girilir - "Samsun"
         driver.findElement(By.xpath("//input[@autocomplete='address-level2']")).sendKeys("Samsun");
 
-        // State seçilir
-        //Select select2=new Select(driver.findElement(By.xpath("(//*[@class='select2-selection__placeholder'])[2]")));
-        //select2.selectByIndex(11);
+        // Province seçilir
+        driver.findElement(By.cssSelector(".select2-selection__placeholder")).click();
+        driver.findElement(By.cssSelector(".select2-search__field")).sendKeys("Samsun", Keys.ENTER);
 
         // ZIP Code girilir - "55000"
         driver.findElement(By.id("billing_postcode")).sendKeys("55000");
@@ -79,9 +74,12 @@ public class test01 {
         // Kayıtlı email adresinin çıktığı görülür "jaeden.sanai@farmoaks.com"
 
         // Save Address butonuna tıklanır
+        driver.findElement(By.xpath("//button[@name='save_address']")).click();
 
         // Açılan sayfada "Address changed successfully." yazısı görülür
+        String saveControl = driver.findElement(By.cssSelector("//button[@name='save_address']")).getText();
 
+        Assertions.assertEquals("Address changed successfully.", saveControl);
 
     }
 }
